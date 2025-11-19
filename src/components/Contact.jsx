@@ -24,15 +24,16 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="bg-white py-16">
+    <section id="contact" className="relative bg-white py-20">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(900px_250px_at_50%_0%,rgba(204,0,0,0.06),transparent)]" />
       <div className="mx-auto max-w-3xl px-6">
-        <h2 className="text-3xl font-bold text-[#333333] mb-6">Contact & Afspraak</h2>
+        <h2 className="text-3xl font-bold text-[#111] mb-6">Contact & Afspraak</h2>
         <form onSubmit={submit} className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
           <div className="grid sm:grid-cols-2 gap-4">
-            <input required placeholder="Naam" value={form.name} onChange={(e)=>setForm({...form, name: e.target.value})} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40" />
-            <input required placeholder="Telefoon" value={form.phone} onChange={(e)=>setForm({...form, phone: e.target.value})} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40" />
-            <input type="email" placeholder="E-mail" value={form.email} onChange={(e)=>setForm({...form, email: e.target.value})} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40 sm:col-span-2" />
-            <select value={form.service_type} onChange={(e)=>setForm({...form, service_type: e.target.value})} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40">
+            <input required placeholder="Naam" value={form.name} onChange={(e)=>setForm({...form, name: e.target.value})} className="border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40" />
+            <input required placeholder="Telefoon" value={form.phone} onChange={(e)=>setForm({...form, phone: e.target.value})} className="border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40" />
+            <input type="email" placeholder="E-mail" value={form.email} onChange={(e)=>setForm({...form, email: e.target.value})} className="border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40 sm:col-span-2" />
+            <select value={form.service_type} onChange={(e)=>setForm({...form, service_type: e.target.value})} className="border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40">
               <option>APK</option>
               <option>Auto onderhoud</option>
               <option>Diagnose</option>
@@ -41,12 +42,12 @@ const Contact = () => {
               <option>Onderhoud op locatie</option>
               <option>Overig</option>
             </select>
-            <input placeholder="Voorkeursdatum" value={form.preferred_date} onChange={(e)=>setForm({...form, preferred_date: e.target.value})} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40" />
-            <textarea placeholder="Bericht / kenteken" value={form.message} onChange={(e)=>setForm({...form, message: e.target.value})} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40 sm:col-span-2" rows={4} />
+            <input placeholder="Voorkeursdatum" value={form.preferred_date} onChange={(e)=>setForm({...form, preferred_date: e.target.value})} className="border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40" />
+            <textarea placeholder="Bericht / kenteken" value={form.message} onChange={(e)=>setForm({...form, message: e.target.value})} className="border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC0000]/40 sm:col-span-2" rows={4} />
           </div>
 
           <div className="mt-6 flex items-center gap-4">
-            <button disabled={status.loading} className="px-6 py-3 rounded-md bg-[#CC0000] text-white font-semibold shadow hover:brightness-95 disabled:opacity-60">
+            <button disabled={status.loading} className="px-6 py-3 rounded-xl bg-[#CC0000] text-white font-semibold shadow-lg shadow-[#CC0000]/20 hover:brightness-95 disabled:opacity-60">
               {status.loading ? 'Versturen…' : 'Verstuur afspraakaanvraag'}
             </button>
             {status.ok && <span className="text-green-700">Bedankt! We nemen spoedig contact op.</span>}
